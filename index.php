@@ -10,6 +10,7 @@ session_start();
 <script src="leaflet/leaflet.js"></script>
 </head>
 <body>
+<h1 id="demo"></h>
 <div class="main">
 	<h1 ><?php echo $_SESSION['MESSAGE'];$_SESSION['MESSAGE']="";?></h1>
  <div id="mapid"></div>
@@ -54,6 +55,7 @@ session_start();
  <script type="text/javascript">
  	
 
+
 //  	var mymap = L.map('mapid').setView([36.821, 54.450], 13);
 //  	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 //     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -62,14 +64,14 @@ session_start();
 //     accessToken: 'pk.eyJ1IjoiYXlyYXRuIiwiYSI6ImNqM3BkdXZ5NTAwMzQzM3Fka2hlNHMzbmQifQ.YMeXZx5WpB7DishB0_YnGw'
 // }).addTo(mymap);
 
-var mymap = L.map('mapid').setView([36.821, 54.450], 13);
+var mymap = L.map('mapid').setView([36.821, 54.450], 14);
  	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
+    maxZoom: 22,
     id: 'mapbox.streets',
     // accessToken: 'pk.eyJ1IjoiYXlyYXRuIiwiYSI6ImNqM3BkdXZ5NTAwMzQzM3Fka2hlNHMzbmQifQ.YMeXZx5WpB7DishB0_YnGw'
 }).addTo(mymap);
- 	var marker=L.marker([36.82,54.450]).addTo(mymap); 
+	var marker=L.marker([36.821,54.450]).addTo(mymap); 
 
 var popup = L.popup();
  var mokh=  document.getElementById("mokhtasat");
