@@ -1,6 +1,12 @@
 <?php 
 session_start();
-
+include_once "db.php";
+$dds="select * from categories";
+$sth=$dbo->query($dds);
+$data=array();
+//print("Fetch all of the remaining rows in the result set:\n");
+$resultcat=$sth->fetchAll(PDO::FETCH_ASSOC);
+$data['success']=1;
  ?>
 <html>
 <head>
@@ -27,7 +33,15 @@ session_start();
  <label for="cat">نوع مکان</label>
 </td>
 <td>
- <input type="text" name="cat" />	
+  <select id="cas-sel" name="cat">
+    <?php 
+    foreach ($resultcat as $row) {
+        # code...
+   echo '<option value=\"'.$row['id'].'\">'.$row['name']."</option>";
+
+    }
+    ?>
+ </select>
 </td>
 
 <tr><td>
@@ -53,16 +67,7 @@ session_start();
 </table>
  </div>
  <script type="text/javascript">
- 	
 
-
-//  	var mymap = L.map('mapid').setView([36.821, 54.450], 13);
-//  	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-//     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-//     maxZoom: 18,
-//     id: 'mapbox.streets',
-//     accessToken: 'pk.eyJ1IjoiYXlyYXRuIiwiYSI6ImNqM3BkdXZ5NTAwMzQzM3Fka2hlNHMzbmQifQ.YMeXZx5WpB7DishB0_YnGw'
-// }).addTo(mymap);
 
 var mymap = L.map('mapid').setView([36.821, 54.450], 14);
  	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
